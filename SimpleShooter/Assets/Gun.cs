@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    float modifier = 0.00001f;
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        if (Input.GetKeyDown(KeyCode.W))
+            transform.Rotate(transform.rotation.eulerAngles + new Vector3(0, 0, 1) * modifier, Space.Self);
+        if (Input.GetKeyDown(KeyCode.S))
+            transform.Rotate(transform.rotation.eulerAngles - new Vector3(0, 0, 1) * modifier, Space.Self);
     }
 }
